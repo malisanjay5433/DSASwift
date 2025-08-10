@@ -6,30 +6,59 @@
 //
 
 import XCTest
-
+@testable import Array
+import DSA_Swift
 final class ArrayTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+	
+	override func setUp() {
+		super.setUp()
+	}
+	override func tearDown()   {
+		super.tearDown()
+	}
+	
+	func test_TwoSumReturnValues() {
+		let arr = [2, 7, 11, 5]
+		let target = 9
+		let result = twoSum(arr, target, returning: .values)
+		XCTAssertEqual(result, [2, 7])
+	}
+	
+	func test_TwoSumReturnIndices() {
+		let arr = [2, 11, 7, 5]
+		let target = 9
+		let result = twoSum(arr, target, returning: .indices)
+		XCTAssertEqual(result, [0, 2])
+	}
+	
+	func test_ContainDuplicate(){
+		let arr = [1,2,3,4,5,1]
+		let result = containsDuplicate(arr)
+		XCTAssertTrue(result)
+	}
+	
+	func test_MaxProfit(){
+		let arr = [10,7,5,8,11,9]
+		let result = maxProfit(arr)
+		XCTAssertEqual(result, 6)
+	}
+	
+	//Anagram
+	func test_isAnagram(){
+		let str1 = "listen"
+		let str2 = "silent"
+		let result = isAnagram(s: str1, t: str2)
+		XCTAssertTrue(result)
+	}
+	
+	//Palidrome
+	func test_isPalindrome(){
+		let input = "racecar"
+		let result = isValidPalindrome(input)
+		XCTAssertTrue(result)
+		
+		let str = "A man, a plan, a canal: Panama"
+		let res = isValidPalindrome(str)
+		XCTAssertTrue(res)
+	}
 }

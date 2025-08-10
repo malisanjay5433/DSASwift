@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "DSA-Swift",
-            targets: ["DSA-Swift"]),
+            targets: ["DSA-Swift", "Array"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,8 +21,11 @@ let package = Package(
         .target(
             name: "DSA-Swift",
             dependencies: []),
+		.target(
+			name: "Array",
+			dependencies: []),
         .testTarget(
             name: "DSA-SwiftTests",
-            dependencies: ["DSA-Swift"]),
+            dependencies: ["DSA-Swift", "Array"]),
     ]
 )
